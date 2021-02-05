@@ -8,6 +8,4 @@ data class Comment(
     @SerializedName("date")val date: Date,
     @SerializedName("content")val content: String,
     @SerializedName("user")val user: String
-): Serializable {
-
-}
+): Serializable {}
