@@ -8,6 +8,7 @@ import fr.isen.yapagi.data.Post
 import fr.isen.yapagi.databinding.ActivityFeedBinding
 import org.json.JSONException
 import org.json.JSONObject
+import java.util.EnumSet.range
 
 lateinit var binding_feed: ActivityFeedBinding
 class FeedActivity : BaseActivity() {
@@ -27,6 +28,10 @@ class FeedActivity : BaseActivity() {
 
         var list: List<Post> = emptyList()
         list += Post("1st post")
+        list += Post("2st post")
+        list += Post("3st post")
+        list += Post("4st post")
+        list += Post("5st post")
         println("list = $list")
 
         binding_feed.postList.adapter = FeedRecyclerViewAdapter(list, this)
