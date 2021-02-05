@@ -1,23 +1,29 @@
 package fr.isen.yapagi.fragments
 
+import android.app.Activity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.afollestad.vvalidator.form
 import fr.isen.yapagi.R
 import fr.isen.yapagi.databinding.FragmentLoginBinding
+import fr.isen.yapagi.network.Authentication
 
 private lateinit var binding: FragmentLoginBinding
 
 class LoginFragment : Fragment() {
+    lateinit var authenticator: Authentication
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        authenticator = Authentication(activity as Activity)
+
         binding = FragmentLoginBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -36,6 +42,7 @@ class LoginFragment : Fragment() {
             }
 
             submitWith(binding.btnLogin) { result ->
+                authenticator.loginUser(binding.etEmail.text.toString(), binding.etPassword.text.toString())
                 displayToast("Correctly Logged In")
             }
         }
