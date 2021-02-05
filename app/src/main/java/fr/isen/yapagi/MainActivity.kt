@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import fr.isen.yapagi.databinding.ActivityMainBinding
 
+
 class MainActivity : BaseActivity() {
     private lateinit var binding: ActivityMainBinding
     
