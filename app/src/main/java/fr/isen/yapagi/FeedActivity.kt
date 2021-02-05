@@ -8,22 +8,31 @@ import fr.isen.yapagi.databinding.ActivityFeedBinding
 import java.util.*
 
 lateinit var binding_feed: ActivityFeedBinding
+
 class FeedActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding_feed = ActivityFeedBinding.inflate(layoutInflater)
-        title = "Feed"
+        //title = "Feed"
         setContentView(binding_feed.root)
+
         title = intent.getStringExtra("username")
 
         binding_feed.postList.layoutManager = LinearLayoutManager(this)
 
         makeRequest()
     }
+
+
+
+
     private fun makeRequest() {
 
         var list: List<Post> = emptyList()
+
+
         var commentList: List<Comment> = emptyList()
+
         commentList += Comment(Date(1, 1, 2019), "FIRST !!!", "Billy Bob")
         commentList += Comment(Date(1, 1, 2019), "erufvyeryufvbhe", "Billy Bob")
 
