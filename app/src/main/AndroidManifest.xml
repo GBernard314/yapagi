@@ -12,6 +12,7 @@
         android:theme="@style/Theme.YAPAGI">
         <activity android:name=".FeedActivity"></activity>
         <activity android:name=".MainActivity">
+        <activity android:name=".AddPostActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
