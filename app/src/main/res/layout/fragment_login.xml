@@ -85,7 +85,7 @@
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_marginTop="16dp"
-            android:background="@color/purple_500"
+            android:background="@drawable/btn_custom"
             android:backgroundTint="#FFAB40"
             android:fontFamily="sans-serif"
             android:text="@string/login"

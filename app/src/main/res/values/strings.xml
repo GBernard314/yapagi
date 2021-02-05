@@ -14,4 +14,5 @@
     <string name="adresse">Address</string>
     <string name="register">Register</string>
     <string name="swipe_right_for_login">Swipe right for login</string>
+    <string name="username">Username</string>
 </resources>
