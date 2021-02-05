@@ -6,8 +6,6 @@ import android.os.Bundle
 import android.widget.Toast
 import fr.isen.yapagi.connection.LandingActivity
 import fr.isen.yapagi.databinding.ActivityMainBinding
-import fr.isen.yapagi.connection.LandingActivity
-
 
 class MainActivity : BaseActivity() {
     private lateinit var binding: ActivityMainBinding
