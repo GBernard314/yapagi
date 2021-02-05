@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1055388829490",
+    "project_id": "yapagi-8c1ba",
+    "storage_bucket": "yapagi-8c1ba.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1055388829490:android:f371e5bee0795c19dc392b",
+        "android_client_info": {
+          "package_name": "fr.isen.yapagi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1055388829490-f0n2gh5q7981iqvlvpparcbh6a899uuo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKKnNrxJQCpEMd5aDa59yBQfM6s7EiV-s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1055388829490-f0n2gh5q7981iqvlvpparcbh6a899uuo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

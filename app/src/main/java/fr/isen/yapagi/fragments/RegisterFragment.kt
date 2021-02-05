@@ -1,5 +1,6 @@
 package fr.isen.yapagi.fragments
 
+import android.app.Activity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,15 +10,19 @@ import android.widget.Toast
 import com.afollestad.vvalidator.form
 import fr.isen.yapagi.R
 import fr.isen.yapagi.databinding.FragmentRegisterBinding
+import fr.isen.yapagi.network.Authentication
 
 private lateinit var binding: FragmentRegisterBinding
 
 class RegisterFragment : Fragment() {
+    lateinit var authenticator: Authentication
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        authenticator = Authentication(activity as Activity)
+
         binding = FragmentRegisterBinding.inflate(layoutInflater)
         return binding.root
     }
@@ -43,9 +48,10 @@ class RegisterFragment : Fragment() {
             }
 
             submitWith(binding.btnRegister) { result ->
-                //sendUserToAPI()
+                authenticator.createUser(binding.etName.text.toString(),
+                    binding.etLastname.text.toString(), binding.etUsername.text.toString(),
+                    binding.etEmail.text.toString(), binding.etPassword.text.toString())
                 displayToast("Registered")
-
             }
         }
         super.onViewCreated(view, savedInstanceState)
