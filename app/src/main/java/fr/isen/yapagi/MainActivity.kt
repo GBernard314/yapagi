@@ -17,6 +17,9 @@ class MainActivity : BaseActivity() {
         val intent = Intent(this, FeedActivity::class.java)
         intent.putExtra("username", "Franck")
         startActivity(intent);
+
+
+
         displayMsg("Feed");
     }
 
