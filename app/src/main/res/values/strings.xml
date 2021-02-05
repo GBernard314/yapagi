@@ -1,18 +1,5 @@
 <resources>
     <string name="app_name">YAPAGI</string>
-
-    <!-- LOGIN PAGE -->
-    <string name="e_mail">E-mail</string>
-    <string name="title_activity_login"> Login</string>
-    <string name="password"> Password </string>
-    <string name="login">Login</string>
-    <string name="swipe_left_for_register"> Swipe left for register </string>
-
-    <!-- REGISTER PAGE -->
-    <string name="your_name">Firstname</string>
-    <string name="lastname">Lastname</string>
-    <string name="adresse">Address</string>
-    <string name="register">Register</string>
-    <string name="swipe_right_for_login">Swipe right for login</string>
-    <string name="username">Username</string>
+    <string name="sign_in">sign in</string>
+    <string name="sign_up">sign up</string>
 </resources>
