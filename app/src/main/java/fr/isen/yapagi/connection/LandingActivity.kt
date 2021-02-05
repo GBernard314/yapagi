@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import fr.isen.yapagi.AuthenticationActivity
+import fr.isen.yapagi.FeedActivity
 import fr.isen.yapagi.MainActivity
 import fr.isen.yapagi.databinding.LandingPageBinding
 
@@ -25,7 +26,8 @@ class LandingActivity : AppCompatActivity() {
 
         binding.landingBtnSignIn.setOnClickListener {
             if (isRegisterIdentificationExisting()) {
-                intent = Intent(this, MainActivity::class.java)
+                intent = Intent(this, FeedActivity::class.java)
+                intent.putExtra("username", "Franck")
                 startActivity(intent)
             } else {
                 intent = Intent(this, AuthenticationActivity::class.java)
