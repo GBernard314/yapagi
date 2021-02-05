@@ -23,14 +23,14 @@ class AddPostActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.submitButton.setOnClickListener {
-            val post = createPost()
-            println(post)
+            createPost()
         }
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
     fun createPost(): String {
-        var username = "Test"
+        val sharedPreferences = getSharedPreferences(APP_PREFS, MODE_PRIVATE)
+        var username = sharedPreferences.getString("username", "Unknown User")
 
         var date = LocalDateTime
             .now()
@@ -41,7 +41,13 @@ class AddPostActivity : AppCompatActivity() {
         var comments = listOf<Comment>()
         var url = binding.imageURL.text.toString()
 
-        var post = Post(username, date, description, nb_likes, comments, url)
-        return GsonBuilder().setPrettyPrinting().create().toJson(post, Post::class.java)
+        var post = username?.let { Post(it, date, description, nb_likes, comments, url) }
+        var postToReturn = GsonBuilder().setPrettyPrinting().create().toJson(post, Post::class.java)
+        return postToReturn
+    }
+
+
+    companion object {
+        const val APP_PREFS = "app_prefs"
     }
 }
