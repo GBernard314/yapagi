@@ -32,7 +32,7 @@ class AddPostActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.O)
     fun createPost(): String {
         val sharedPreferences = getSharedPreferences(APP_PREFS, MODE_PRIVATE)
-        var username = "Test" //sharedPreferences.getString("username", "Unknown User")
+        var username = sharedPreferences.getString("username", "Unknown User")
 
         var date = LocalDateTime
             .now()
