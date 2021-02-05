@@ -12,7 +12,6 @@
         android:theme="@style/Theme.YAPAGI">
         <activity android:name=".FeedActivity"></activity>
         <activity android:name=".AddPostActivity"></activity>
-        <activity android:name=".MainActivity"></activity>
         <activity android:name=".AuthenticationActivity" />
         <activity android:name=".connection.LandingActivity">
             <intent-filter>

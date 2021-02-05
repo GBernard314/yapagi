@@ -4,11 +4,9 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import fr.isen.yapagi.AuthenticationActivity
 import fr.isen.yapagi.FeedActivity
-import fr.isen.yapagi.MainActivity
 import fr.isen.yapagi.databinding.LandingPageBinding
 
 private lateinit var prefFile: SharedPreferences

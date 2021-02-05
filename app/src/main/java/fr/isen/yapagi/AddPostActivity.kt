@@ -25,7 +25,7 @@ class AddPostActivity : AppCompatActivity() {
 
         binding.submitButton.setOnClickListener {
             createPost()
-            intent = Intent(this, MainActivity::class.java)
+            intent = Intent(this, FeedActivity::class.java)
         }
     }
 
