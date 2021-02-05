@@ -2,6 +2,7 @@ package fr.isen.yapagi
 
 import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
@@ -24,6 +25,8 @@ class FeedRecyclerViewAdapter(
         val nb_Com = binding.nbComments
         val com_user = binding.comUser
         val com = binding.com
+        val like = binding.like
+        val like2 = binding.imageView2
         /*
         val price = binding.DishPrice
         val image = binding.DishImage
@@ -41,6 +44,7 @@ class FeedRecyclerViewAdapter(
         return ViewHolder(itemBinding);
     }
 
+
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.user.text = dataSet[position].username
         holder.com_user.text = dataSet[position].comments[0].user + " : "
@@ -48,6 +52,30 @@ class FeedRecyclerViewAdapter(
         holder.nb_like.text = dataSet[position].nb_likes.toString()
         holder.nb_Com.text = dataSet[position].getCommentsCount().toString()
         holder.desc.text = dataSet[position].description
+        var liked = false
+
+        holder.like2.setOnClickListener{
+            holder.like2.visibility = View.GONE
+            if (!liked){
+                liked = true
+                holder.nb_like.text = (dataSet[position].nb_likes.toString().toInt() + 1).toString()
+
+                holder.like.visibility = View.VISIBLE
+                holder.like.playAnimation()
+            }
+
+        }
+
+        holder.like.setOnClickListener{
+         if (liked) {
+                liked = false
+                holder.nb_like.text = (dataSet[position].nb_likes.toString())
+                holder.like.visibility = View.GONE
+                holder.like2.visibility = View.VISIBLE
+            }
+        }
+
+
 
         Picasso.get()
             .load(dataSet[position].url)
