@@ -1,5 +1,6 @@
 package fr.isen.yapagi
 
+import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -24,13 +25,14 @@ class AddPostActivity : AppCompatActivity() {
 
         binding.submitButton.setOnClickListener {
             createPost()
+            intent = Intent(this, MainActivity::class.java)
         }
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
     fun createPost(): String {
         val sharedPreferences = getSharedPreferences(APP_PREFS, MODE_PRIVATE)
-        var username = sharedPreferences.getString("username", "Unknown User")
+        var username = "Test" //sharedPreferences.getString("username", "Unknown User")
 
         var date = LocalDateTime
             .now()
