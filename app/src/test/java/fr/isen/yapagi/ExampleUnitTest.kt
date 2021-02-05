@@ -1,4 +1,4 @@
-package fr.isen.attia.yapagi
+package fr.isen.yapagi
 
 import org.junit.Test
 
