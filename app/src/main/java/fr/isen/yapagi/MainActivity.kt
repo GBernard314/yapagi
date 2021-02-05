@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import fr.isen.yapagi.connection.LandingActivity
 import fr.isen.yapagi.databinding.ActivityMainBinding
-import fr.isen.yapagi.profile.ProfileDetailActivity
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -14,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val intent = Intent(this, ProfileDetailActivity::class.java)
+        val intent = Intent(this, LandingActivity::class.java)
         startActivity(intent)
     }
 }
