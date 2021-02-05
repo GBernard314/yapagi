@@ -33,6 +33,18 @@ class Database {
             }
         }
 
+        fun updatePost(postId: String, post: Post){
+            val postsDb = db.getReference(POSTS)
+            Log.d(TAG, "UPDATING_POST_@$postId")
+            postsDb.child(postId).child(postId).setValue(post)
+            Log.d(TAG, "POST_UPDATED")
+        }
+
+        fun getPosts(){
+            val postsDb = db.getReference(POSTS)
+            
+        }
+
         fun saveUser(userId: String, userFirstName: String, userLastName: String,
                      userUsername: String, userEmail: String){
             val usersDb = db.getReference(USERS)
