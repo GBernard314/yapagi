@@ -27,5 +27,19 @@ class Database {
             usersDb.child(userId).setValue(user)
             Log.d(TAG, "USER_SAVED !")
         }
+
+        fun getUser(userId: String, listener: UserDataListener){
+            val usersDb = db.getReference(USERS)
+
+            usersDb.child(userId).addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                    Log.d(TAG, "GETTING_USER_@$userId")
+                    listener.onSuccess(dataSnapshot.getValue<User>())
+                }
+                override fun onCancelled(error: DatabaseError) {
+                    Log.d(TAG, "COULD_NOT_GET_USER_@$userId")
+                }
+            })
+        }
     }
 }

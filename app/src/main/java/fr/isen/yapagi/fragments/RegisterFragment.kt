@@ -48,7 +48,6 @@ class RegisterFragment : Fragment() {
             }
 
             submitWith(binding.btnRegister) { result ->
-                //sendUserToAPI()
                 authenticator.createUser(binding.etName.text.toString(),
                     binding.etLastname.text.toString(), binding.etUsername.text.toString(),
                     binding.etEmail.text.toString(), binding.etPassword.text.toString())

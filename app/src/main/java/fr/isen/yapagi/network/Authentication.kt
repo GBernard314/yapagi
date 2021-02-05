@@ -9,10 +9,12 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import fr.isen.yapagi.data.User
 
 class Authentication(private val parentActivity: Activity) {
     companion object{
         private const val TAG = "AUTHENTICATION"
+        //ATTENTION
         private var auth: FirebaseAuth = Firebase.auth
 
         fun getUserID(): String?{
@@ -22,7 +24,6 @@ class Authentication(private val parentActivity: Activity) {
             }?: run{
                 return null
             }
-
         }
     }
 
@@ -46,6 +47,12 @@ class Authentication(private val parentActivity: Activity) {
             .addOnCompleteListener(parentActivity) { task ->
                 if (task.isSuccessful) {
                     Log.d(TAG, "loginUser::SIGNED_IN_USER_WITH_SUCCESS")
+                    //Here example of Database.getUser() ->
+                    Database.getUser(auth.currentUser?.uid.toString(), object : UserDataListener {
+                        override fun onSuccess(value: User?) {
+                            Log.d(TAG, value?.username.toString())
+                        }
+                    })
                 } else {
                     Log.d(TAG, "loginUser::SIGNED_IN_USER_FAILED", task.exception)
                 }
