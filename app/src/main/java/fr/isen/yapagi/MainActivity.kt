@@ -5,11 +5,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import fr.isen.yapagi.databinding.ActivityMainBinding
+import fr.isen.yapagi.connection.LandingActivity
 
 
 class MainActivity : BaseActivity() {
     private lateinit var binding: ActivityMainBinding
-    
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
