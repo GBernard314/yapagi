@@ -10,7 +10,7 @@ import org.json.JSONException
 import org.json.JSONObject
 
 lateinit var binding_feed: ActivityFeedBinding
-class FeedActivity : AppCompatActivity() {
+class FeedActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding_feed = ActivityFeedBinding.inflate(layoutInflater)
