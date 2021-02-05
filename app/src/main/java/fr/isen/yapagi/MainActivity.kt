@@ -4,10 +4,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.airbnb.lottie.LottieAnimationView
-import fr.isen.yapagi.databinding.ActivityMainBinding
+import fr.isen.yapagi.databinding.PostBinding
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var binding: PostBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
