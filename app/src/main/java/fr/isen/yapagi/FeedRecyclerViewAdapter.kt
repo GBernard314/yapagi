@@ -17,12 +17,14 @@ class FeedRecyclerViewAdapter(
     RecyclerView.Adapter<FeedRecyclerViewAdapter.ViewHolder>() {
 
     class ViewHolder(binding: PostBinding) : RecyclerView.ViewHolder(binding.root) {
-        val title = binding.title
+        val title = binding.postTitle
         /*
         val price = binding.DishPrice
         val image = binding.DishImage
         */
-        val container: ConstraintLayout = binding.root;
+        val container: CardView = binding.root;
+
+
     }
 
     override fun onCreateViewHolder(
