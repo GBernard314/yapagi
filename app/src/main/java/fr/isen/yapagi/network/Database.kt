@@ -7,6 +7,7 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
+import fr.isen.yapagi.data.Post
 import fr.isen.yapagi.data.User
 
 class Database {
@@ -15,8 +16,22 @@ class Database {
 
         private const val URL = "https://yapagi-8c1ba-default-rtdb.europe-west1.firebasedatabase.app/"
         private const val USERS = "users"
+        private const val POSTS = "posts"
 
         private val db = Firebase.database(URL)
+
+        fun createPost(post: Post){
+            val postsDb = db.getReference(POSTS)
+
+            Log.d(TAG, "CREATING_POST...")
+            val postId = postsDb.push().key
+            postId?.let{
+                postsDb.child(postId).setValue(post)
+                Log.d(TAG, "POST_CREATED !")
+            }?: run{
+                Log.d(TAG, "COULD_NOT_CREATE_POST")
+            }
+        }
 
         fun saveUser(userId: String, userFirstName: String, userLastName: String,
                      userUsername: String, userEmail: String){
