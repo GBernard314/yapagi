@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import fr.isen.yapagi.connection.LandingActivity
 import fr.isen.yapagi.databinding.ActivityMainBinding
 import fr.isen.yapagi.connection.LandingActivity
 
