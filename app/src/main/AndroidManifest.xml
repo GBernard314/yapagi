@@ -13,8 +13,8 @@
         <activity android:name=".FeedActivity"></activity>
         <activity android:name=".AddPostActivity"></activity>
         <activity android:name=".MainActivity"></activity>
-        <activity android:name=".connection.LandingActivity" />
-        <activity android:name=".AuthenticationActivity">
+        <activity android:name=".AuthenticationActivity" />
+        <activity android:name=".connection.LandingActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
