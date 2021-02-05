@@ -1,7 +1,6 @@
 package fr.isen.yapagi
 
 import android.os.Bundle
-import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import fr.isen.yapagi.data.Comment
 import fr.isen.yapagi.data.Post
@@ -15,7 +14,7 @@ class FeedActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding_feed = ActivityFeedBinding.inflate(layoutInflater)
-        title = "Feed"
+        //title = "Feed"
         setContentView(binding_feed.root)
         title = intent.getStringExtra("username")
 
@@ -31,8 +30,7 @@ class FeedActivity : BaseActivity() {
                 binding_feed.postList.adapter = FeedRecyclerViewAdapter(list, applicationContext)
             }
         })
-
-
     }
+
 
 }
