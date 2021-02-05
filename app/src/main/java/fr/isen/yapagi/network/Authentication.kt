@@ -10,35 +10,33 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
-class Authentication(val parentActivity: Activity) {
+class Authentication(private val parentActivity: Activity) {
     companion object{
         private const val TAG = "AUTHENTICATION"
-
         private var auth: FirebaseAuth = Firebase.auth
-        //user is null if the User is signed out. The user is returned otherwise
-        private var user: FirebaseUser? = null
-            get(){
-                updateUser()
-                return user
+
+        fun getUserID(): String?{
+            val user = auth.currentUser
+            user?.let{
+                return it.uid
+            }?: run{
+                return null
             }
 
-        private fun updateUser(){
-            user = auth.currentUser
         }
     }
 
-    fun createUser(email: String, password: String){
+    fun createUser(firstName: String, lastName: String, userName: String,
+                   email: String, password: String){
+        Log.d(TAG, "createUser::CREATING_EMAIL($email)_PASS($password)")
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(parentActivity) { task ->
                 if(task.isSuccessful){
                     Log.d(TAG, "createUser::CREATED_USER_WITH_SUCCESS")
-                    updateUser()
-                    //Snackbar.make(view, R.string.user_create_success, Snackbar.LENGTH_SHORT).show()
-                    //DO WHAT IS NEEDED WITH THE NEWLY CREATED USER
+                    val user = auth.currentUser
+                    Database.saveUser(user?.uid.toString(), firstName, lastName, userName, email)
                 }else{
                     Log.d(TAG, "createUser::FAILED_TO_CREATE_USER", task.exception)
-                    //Snackbar.make(view, R.string.user_create_failed, Snackbar.LENGTH_SHORT).show()
-                    //DO WHAT IS NEEDED IN CASE OF AN ERROR
                 }
             }
     }
@@ -48,19 +46,13 @@ class Authentication(val parentActivity: Activity) {
             .addOnCompleteListener(parentActivity) { task ->
                 if (task.isSuccessful) {
                     Log.d(TAG, "loginUser::SIGNED_IN_USER_WITH_SUCCESS")
-                    //Snackbar.make(view, R.string.user_log_success, Snackbar.LENGTH_SHORT).show()
-                    updateUser()
-                    //WHAT ELSE ?
                 } else {
-                    // If sign in fails, display a message to the user.
                     Log.d(TAG, "loginUser::SIGNED_IN_USER_FAILED", task.exception)
-                    //Snackbar.make(view, R.string.user_log_failed, Snackbar.LENGTH_SHORT).show()
                 }
             }
     }
 
     fun logoutUser(){
         Firebase.auth.signOut()
-        updateUser()
     }
 }
