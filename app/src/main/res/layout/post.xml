@@ -7,14 +7,16 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="611dp">
 
         <ImageView
             android:id="@+id/comment"
             android:layout_width="39dp"
             android:layout_height="41dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="56dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.318"
             app:layout_constraintStart_toEndOf="@+id/nb_likes"
             app:layout_constraintTop_toBottomOf="@+id/image_post"
             app:srcCompat="@drawable/comment" />
@@ -23,6 +25,7 @@
             android:id="@+id/like"
             android:layout_width="97dp"
             android:layout_height="92dp"
+            android:layout_marginTop="32dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/image_post"
             app:lottie_autoPlay="false"
@@ -36,35 +39,41 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="TextView"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/image_post"
-            android:layout_width="344dp"
-            android:layout_height="222dp"
+            android:layout_width="0dp"
+            android:layout_height="410dp"
             android:layout_marginTop="16dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/user"
             tools:srcCompat="@tools:sample/avatars" />
 
         <TextView
-            android:id="@+id/desciption"
+            android:id="@+id/description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:layout_marginTop="12dp"
+            android:text="Desc"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/like" />
+            app:layout_constraintTop_toBottomOf="@+id/image_post" />
 
         <TextView
             android:id="@+id/nb_likes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:text="TextView"
+            android:layout_marginTop="64dp"
+            android:textStyle="bold"
+            android:text="1000"
             app:layout_constraintStart_toEndOf="@+id/like"
             app:layout_constraintTop_toBottomOf="@+id/image_post" />
 
@@ -72,11 +81,36 @@
             android:id="@+id/nb_comments"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="64dp"
             android:text="TextView"
+            android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/comment"
             app:layout_constraintTop_toBottomOf="@+id/image_post" />
+
+        <TextView
+            android:id="@+id/comUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginBottom="4dp"
+            android:text="comUser"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/like"
+            app:layout_constraintVertical_bias="0.666" />
+
+        <TextView
+            android:id="@+id/com"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:text="com"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/comUser"
+            app:layout_constraintTop_toBottomOf="@+id/like"
+            app:layout_constraintVertical_bias="0.285" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,4 +9,5 @@ data class Comment(
     @SerializedName("content")val content: String,
     @SerializedName("user")val user: String
 ): Serializable {
+
 }
