@@ -12,7 +12,8 @@
         android:theme="@style/Theme.YAPAGI">
         <activity android:name=".FeedActivity"></activity>
         <activity android:name=".AddPostActivity"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".AuthenticationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

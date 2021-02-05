@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Context
 import android.util.Log
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -50,7 +51,8 @@ class Authentication(private val parentActivity: Activity) {
                     //Here example of Database.getUser() ->
                     Database.getUser(auth.currentUser?.uid.toString(), object : UserDataListener {
                         override fun onSuccess(value: User?) {
-                            Log.d(TAG, value?.username.toString())
+                            val sharedPreferences = parentActivity.getSharedPreferences("app_prefs", AppCompatActivity.MODE_PRIVATE)
+                            sharedPreferences?.edit()?.putString("username", value?.username.toString())?.apply()
                         }
                     })
                 } else {
