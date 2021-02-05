@@ -1,5 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/comment"
+            android:layout_width="39dp"
+            android:layout_height="41dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            app:layout_constraintStart_toEndOf="@+id/nb_likes"
+            app:layout_constraintTop_toBottomOf="@+id/image_post"
+            app:srcCompat="@drawable/comment" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/like"
+            android:layout_width="97dp"
+            android:layout_height="92dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image_post"
+            app:lottie_autoPlay="false"
+            app:lottie_fileName="like.json"
+            app:lottie_loop="false"
+            app:lottie_speed="1.25" />
+
+        <TextView
+            android:id="@+id/user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="TextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/image_post"
+            android:layout_width="344dp"
+            android:layout_height="222dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/user"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/desciption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/like" />
+
+        <TextView
+            android:id="@+id/nb_likes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="TextView"
+            app:layout_constraintStart_toEndOf="@+id/like"
+            app:layout_constraintTop_toBottomOf="@+id/image_post" />
+
+        <TextView
+            android:id="@+id/nb_comments"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="32dp"
+            android:text="TextView"
+            app:layout_constraintStart_toEndOf="@+id/comment"
+            app:layout_constraintTop_toBottomOf="@+id/image_post" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </androidx.cardview.widget.CardView>
