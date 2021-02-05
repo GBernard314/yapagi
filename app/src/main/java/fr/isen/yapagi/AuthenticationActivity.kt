@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import fr.isen.yapagi.adapter.AuthenticationPagerActivity
 import fr.isen.yapagi.databinding.ActivityAuthenticationBinding
+import fr.isen.yapagi.network.Database
 
 
 private lateinit var binding: ActivityAuthenticationBinding
@@ -14,5 +15,10 @@ class AuthenticationActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.viewPager.adapter = AuthenticationPagerActivity(this, supportFragmentManager)
+
+        /** TESTS TO REMOVE **/
+        var database = Database()
+        //database.write("Hello There !")
+        database.read("message")
     }
 }
