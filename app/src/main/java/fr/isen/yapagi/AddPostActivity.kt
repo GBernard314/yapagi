@@ -39,11 +39,15 @@ class AddPostActivity : AppCompatActivity() {
 
         if (requestCode == 777) {
             val filePath = data?.data?.path
-            val file = File(filePath)
-            Picasso.get()
-                .load(file)
-                .placeholder(R.drawable.gear)
-                .into(binding.image)
+            if (filePath.isNullOrEmpty()) {
+                println("empty")
+            } else {
+                val file = File(filePath)
+                Picasso.get()
+                    .load(file)
+                    .placeholder(R.drawable.gear)
+                    .into(binding.image)
+            }
         }
     }
 
