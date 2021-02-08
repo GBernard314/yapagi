@@ -25,6 +25,7 @@
         android:layout_height="150dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:clickable="true"
         android:contentDescription="@string/user_picture"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
