@@ -7,13 +7,16 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import fr.isen.yapagi.AuthenticationActivity
 import fr.isen.yapagi.FeedActivity
+import fr.isen.yapagi.data.User
 import fr.isen.yapagi.databinding.LandingPageBinding
+import fr.isen.yapagi.network.Authentication
+import fr.isen.yapagi.network.Database
+import fr.isen.yapagi.network.UserDataListener
 
 private lateinit var prefFile: SharedPreferences
 
 class LandingActivity : AppCompatActivity() {
     lateinit var binding: LandingPageBinding
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,8 +28,15 @@ class LandingActivity : AppCompatActivity() {
         binding.landingBtnSignIn.setOnClickListener {
             if (isRegisterIdentificationExisting()) {
                 intent = Intent(this, FeedActivity::class.java)
-                intent.putExtra("username", "Franck")
-                startActivity(intent)
+                Authentication.getUserID()?.let { it1 ->
+                    Database.getUser(it1, object: UserDataListener{
+                        override fun onSuccess(value: User?) {
+                            intent.putExtra("username", value?.username)
+                            startActivity(intent)
+                        }
+                    })
+                }
+
             } else {
                 intent = Intent(this, AuthenticationActivity::class.java)
                 startActivity(intent)
@@ -40,7 +50,7 @@ class LandingActivity : AppCompatActivity() {
 
 
     private fun isRegisterIdentificationExisting(): Boolean {
-        return (getUserLogin() != "unknown")
+        return Authentication.getUserID() != null
     }
 
     fun clearUserData() {

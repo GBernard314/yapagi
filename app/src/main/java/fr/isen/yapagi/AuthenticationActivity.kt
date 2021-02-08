@@ -16,9 +16,5 @@ class AuthenticationActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.viewPager.adapter = AuthenticationPagerActivity(this, supportFragmentManager)
-
-        /** TESTS TO REMOVE **/
-        //Database.write("Hello There !")
-        //Database.read("message")
     }
 }
