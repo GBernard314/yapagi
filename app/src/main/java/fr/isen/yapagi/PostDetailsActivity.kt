@@ -56,8 +56,7 @@ class PostDetailsActivity : AppCompatActivity() {
 
         }
 
-
-        binding_details.floatingActionButton.setOnClickListener {
+        binding_details.floatingActionButton2.setOnClickListener {
             startActivity(Intent(this, AddPostActivity::class.java))
         }
 
