@@ -24,7 +24,7 @@
         android:ems="10"
         android:hint="Image URL"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toStartOf="@+id/fileExplorer"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/image" />
 
@@ -33,15 +33,24 @@
         android:layout_width="0dp"
         android:layout_height="120dp"
         android:ems="10"
-        android:gravity="start|top"
-        android:hint="Write down your description"
-        android:inputType="textMultiLine"
+        android:hint="Image URL"
+        android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageURL" />
 
     <Button
-        android:id="@+id/submit_button"
+        android:id="@+id/fileExplorer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:text="Upload"
+        app:icon="@drawable/ic_baseline_upgrade_24"
+        app:layout_constraintBottom_toTopOf="@+id/description_input"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/submitButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -50,14 +59,5 @@
         android:text="Submit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/description_input" />
-
-    <Button
-        android:id="@+id/fileExplorer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Upload"
-        app:icon="@drawable/ic_baseline_upgrade_24"
-        app:layout_constraintBottom_toTopOf="@+id/description_input"
-        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
