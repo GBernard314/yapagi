@@ -56,6 +56,11 @@ class PostDetailsActivity : AppCompatActivity() {
 
         }
 
+
+        binding_details.floatingActionButton.setOnClickListener {
+            startActivity(Intent(this, AddPostActivity::class.java))
+        }
+
         like.setOnClickListener {
             if (liked) {
                 liked = false
