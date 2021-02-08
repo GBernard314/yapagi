@@ -5,4 +5,8 @@
     <string name="user_picture">User picture</string>
     <string name="description">description</string>
     <string name="username">Username</string>
+
+    <!-- LANDING PAGE -->
+    <string name="sign_in">sign in</string>
+    <string name="sign_up">sign up</string>
 </resources>
