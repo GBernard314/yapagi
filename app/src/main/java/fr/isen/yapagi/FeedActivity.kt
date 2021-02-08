@@ -7,12 +7,14 @@ import fr.isen.yapagi.data.Post
 import fr.isen.yapagi.databinding.ActivityFeedBinding
 import fr.isen.yapagi.network.Database
 import fr.isen.yapagi.network.PostsDataListener
+import fr.isen.yapagi.databinding.ActivityPostDetailsBinding
 import java.util.*
 
 lateinit var binding_feed: ActivityFeedBinding
 class FeedActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding_feed = ActivityFeedBinding.inflate(layoutInflater)
         binding_feed = ActivityFeedBinding.inflate(layoutInflater)
         //title = "Feed"
         setContentView(binding_feed.root)
@@ -21,6 +23,7 @@ class FeedActivity : BaseActivity() {
         binding_feed.postList.layoutManager = LinearLayoutManager(this)
 
         makeRequest()
+
     }
     private fun makeRequest() {
         Database.getPosts(object: PostsDataListener {

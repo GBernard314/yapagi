@@ -1,6 +1,7 @@
 package fr.isen.yapagi
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,10 +28,6 @@ class FeedRecyclerViewAdapter(
         val com = binding.com
         val like = binding.like
         val like2 = binding.imageView2
-        /*
-        val price = binding.DishPrice
-        val image = binding.DishImage
-        */
         val container: CardView = binding.root;
 
 
@@ -82,6 +79,13 @@ class FeedRecyclerViewAdapter(
             .placeholder(R.drawable.gear)// Image to load when something goes wrong
             .into(holder.img);
 
+
+        holder.container.setOnClickListener{
+            val intent = Intent(ct, PostDetailsActivity::class.java)
+            val the_post = dataSet[position]
+            intent.putExtra("post", the_post)
+            ct.startActivity(intent);
+        }
 
         /*
         holder.price.text = dataSet[position].getFormatedPrice()
