@@ -15,6 +15,8 @@
     <string name="register">Register</string>
     <string name="swipe_right_for_login">Swipe right for login</string>
     <string name="username">Username</string>
+    <string name="user_picture">picture</string>
+    <string name="description">description</string>
 
     <!-- LANDING PAGE -->
     <string name="sign_in">sign in</string>
