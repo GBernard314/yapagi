@@ -27,6 +27,23 @@ class AddPostActivity : AppCompatActivity() {
             createPost()
             intent = Intent(this, FeedActivity::class.java)
         }
+
+        binding.fileExplorer.setOnClickListener{
+            val intent = Intent()
+                .setType("*/*")
+                .setAction(Intent.ACTION_GET_CONTENT)
+
+            startActivityForResult(Intent.createChooser(intent, "Select a file"), 777)
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == 777) {
+            val filePath = data?.data?.path
+            println(filePath)
+        }
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
