@@ -8,7 +8,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "fr.isen.yapagi"
+        applicationId "fr.isen.attia.yapagi"
         minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
@@ -30,10 +30,6 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-
-    buildFeatures {
-        viewBinding true
-    }
 }
 
 dependencies {
@@ -46,6 +42,7 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    implementation 'com.afollestad:vvalidator:0.2.2'
     implementation 'com.airbnb.android:lottie:3.5.0'
     implementation 'com.google.code.gson:gson:2.8.6'
 }
