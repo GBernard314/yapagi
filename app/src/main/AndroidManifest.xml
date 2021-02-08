@@ -14,9 +14,8 @@
         <activity android:name=".PostDetailsActivity"></activity>
         <activity android:name=".FeedActivity" />
         <activity android:name=".AddPostActivity" />
-        <activity android:name=".AuthenticationActivity" />
         <activity android:name=".profile.ProfileDetailActivity" />
-        <activity android:name=".connection.LandingActivity">
+        <activity android:name=".AuthenticationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

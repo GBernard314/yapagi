@@ -1,6 +1,7 @@
 package fr.isen.yapagi.fragments
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,9 +9,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.afollestad.vvalidator.form
+import fr.isen.yapagi.FeedActivity
 import fr.isen.yapagi.R
+import fr.isen.yapagi.data.User
 import fr.isen.yapagi.databinding.FragmentRegisterBinding
 import fr.isen.yapagi.network.Authentication
+import fr.isen.yapagi.network.Database
+import fr.isen.yapagi.network.UserDataListener
 
 private lateinit var binding: FragmentRegisterBinding
 
@@ -52,6 +57,19 @@ class RegisterFragment : Fragment() {
                     binding.etLastname.text.toString(), binding.etUsername.text.toString(),
                     binding.etEmail.text.toString(), binding.etPassword.text.toString())
                 displayToast("Registered")
+                if (Authentication.getUserID() != null) {
+                    val intent = Intent(activity?.applicationContext, FeedActivity::class.java)
+                    Authentication.getUserID()?.let { it1 ->
+                        Database.getUser(it1, object : UserDataListener {
+                            override fun onSuccess(value: User?) {
+                                intent.putExtra("username", value?.username)
+                                startActivity(intent)
+                            }
+                        })
+                    }
+
+                }
+
             }
         }
         super.onViewCreated(view, savedInstanceState)

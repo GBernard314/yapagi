@@ -3,6 +3,7 @@ package fr.isen.yapagi
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.squareup.picasso.Picasso
 import fr.isen.yapagi.data.Comment
 import fr.isen.yapagi.data.Post

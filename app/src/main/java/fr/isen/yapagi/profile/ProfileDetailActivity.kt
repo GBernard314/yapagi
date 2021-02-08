@@ -60,7 +60,7 @@ class ProfileDetailActivity : AppCompatActivity() {
             //saveUserProfile(getUserName(), getUserDescription(), "image_link")
         }
         Picasso.get().load(getUserPicture())
-            .placeholder(R.drawable.avatar_0)
+            .placeholder(R.drawable.avatar_1)
             .into(binding.profileDetailUserImg)
     }
 

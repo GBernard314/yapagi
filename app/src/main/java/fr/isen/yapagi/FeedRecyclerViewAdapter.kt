@@ -44,8 +44,8 @@ class FeedRecyclerViewAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.user.text = dataSet[position].username
-        holder.com_user.text = dataSet[position].comments[0].user + " : "
-        holder.com.text = dataSet[position].comments[0].content
+        holder.com_user.text = dataSet[position].comments.firstOrNull()?.user
+        holder.com.text = dataSet[position].comments.firstOrNull()?.content
         holder.nb_like.text = dataSet[position].nb_likes.toString()
         holder.nb_Com.text = dataSet[position].getCommentsCount().toString()
         holder.desc.text = dataSet[position].description
@@ -73,11 +73,18 @@ class FeedRecyclerViewAdapter(
         }
 
 
-
-        Picasso.get()
-            .load(dataSet[position].url)
-            .placeholder(R.drawable.gear)// Image to load when something goes wrong
-            .into(holder.img);
+        if (dataSet[position].url.isNullOrEmpty()){
+            Picasso.get()
+                .load(R.drawable.microsoftteams_image__1_)
+                .placeholder(R.drawable.microsoftteams_image__1_)// Image to load when something goes wrong
+                .into(holder.img);
+        } else {
+            Picasso.get()
+                .load(dataSet[position].url)
+                .error(R.drawable.microsoftteams_image__1_)
+                .placeholder(R.drawable.microsoftteams_image__1_)// Image to load when something goes wrong
+                .into(holder.img);
+        }
 
 
         holder.container.setOnClickListener{

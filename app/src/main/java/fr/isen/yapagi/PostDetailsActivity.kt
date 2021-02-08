@@ -26,7 +26,7 @@ class PostDetailsActivity : AppCompatActivity() {
 
         Picasso.get()
             .load(the_post.url)
-            .placeholder(R.drawable.gear)// Image to load when something goes wrong
+            .placeholder(R.drawable.microsoftteams_image__1_)// Image to load when something goes wrong
             .into(binding_details.imagePost);
 
 

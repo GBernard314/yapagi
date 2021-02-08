@@ -4,6 +4,7 @@ import android.content.Intent
 import android.view.Menu
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import fr.isen.yapagi.network.Authentication
 
 open class BaseActivity() : AppCompatActivity() {
 
@@ -11,19 +12,16 @@ open class BaseActivity() : AppCompatActivity() {
         menuInflater.inflate(R.menu.menu, menu)
 
         val cartMenuView = menu?.findItem(R.id.settings)?.actionView
-        /*
-        val sharedPreferences = getSharedPreferences(DishDetailActivity.APP_PREFS, MODE_PRIVATE)
 
-        val cartQuantity = sharedPreferences.getInt("cart_count", 0)
+        val Auth = Authentication(this)
 
-        val textView = cartMenuView?.findViewById<TextView>(R.id.)
-        textView?.text = cartQuantity.toString()
-
-        cartMenuView?.setOnClickListener{
-            val intent = Intent(this, CartActivity::class.java)
-            startActivity(intent)
+        if (cartMenuView != null) {
+            cartMenuView.setOnClickListener {
+                Auth.logoutUser()
+                startActivity(Intent(this, AuthenticationActivity::class.java))
+            }
         }
-        */
+
         return super.onCreateOptionsMenu(menu)
     }
 }
