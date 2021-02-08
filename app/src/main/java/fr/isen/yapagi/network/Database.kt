@@ -69,7 +69,6 @@ class Database {
         fun getPosts(listener: PostsDataListener){
             val postsDb = db.getReference(POSTS)
 
-            listener.onStart()
             postsDb.addValueEventListener(object: ValueEventListener {
                 override fun onDataChange(dataSnapshot: DataSnapshot){
                     Log.d(TAG, "GETTING_POSTS_LIST")
@@ -88,7 +87,6 @@ class Database {
 
                 override fun onCancelled(error: DatabaseError){
                     Log.d(TAG, "COULD_NOT_GET_POSTS")
-                    listener.onFailure()
                 }
             })
         }
