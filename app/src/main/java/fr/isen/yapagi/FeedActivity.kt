@@ -1,6 +1,5 @@
 package fr.isen.yapagi
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import fr.isen.yapagi.data.Comment
@@ -20,6 +19,8 @@ class FeedActivity : BaseActivity() {
         title = intent.getStringExtra("username")
 
         binding_feed.postList.layoutManager = LinearLayoutManager(this)
+
+        makeRequest()
     }
 
 
