@@ -1,5 +1,6 @@
 package fr.isen.yapagi
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import fr.isen.yapagi.data.Comment
@@ -23,6 +24,10 @@ class FeedActivity : BaseActivity() {
         binding_feed.postList.layoutManager = LinearLayoutManager(this)
 
         makeRequest()
+
+        binding_feed.floatingActionButton2.setOnClickListener {
+            startActivity(Intent(this, AddPostActivity::class.java))
+        }
 
     }
     private fun makeRequest() {
