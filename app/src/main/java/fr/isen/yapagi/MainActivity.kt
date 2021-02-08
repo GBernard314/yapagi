@@ -23,7 +23,7 @@ import java.util.*
 
 class MainActivity : BaseActivity() {
     private lateinit var binding: ActivityMainBinding
-    
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
